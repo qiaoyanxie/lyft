@@ -27,7 +27,7 @@ wget https://lyft-l5-datasets-public.s3-us-west-2.amazonaws.com/prediction/v1.1/
 tar xf $TEMP_DOWNLOAD_DIR/aerial_map.tar -C $TEMP_DATASET_DIR
 
 # Dowload sample configuration
-wget https://github.com/lyft/l5kit/blob/master/examples/agent_motion_prediction/agent_motion_config.yaml -q
+wget https://raw.githubusercontent.com/qiaoyanxie/lyft/main/agent_motion_config.yaml -q
 
 # Install L5Kit
 echo "Installing L5kit..."
