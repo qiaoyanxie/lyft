@@ -4,13 +4,13 @@
 TEMP_DOWNLOAD_DIR=$(mktemp -d)
 TEMP_DATASET_DIR=$(mktemp -d)
 
-# Download sample zarr
+# Download train zarr
 echo "Downloading train zarr dataset..."
 wget https://lyft-l5-datasets-public.s3-us-west-2.amazonaws.com/prediction/v1.1/train.tar \
     -q --show-progress -P $TEMP_DOWNLOAD_DIR
 
 mkdir -p $TEMP_DATASET_DIR/scenes
-tar xf $TEMP_DOWNLOAD_DIR/sample.tar -C $TEMP_DATASET_DIR/scenes
+tar xf $TEMP_DOWNLOAD_DIR/train.tar -C $TEMP_DATASET_DIR/scenes
 
 # Download semantic map
 echo "Downloading semantic map..."
@@ -26,7 +26,7 @@ wget https://lyft-l5-datasets-public.s3-us-west-2.amazonaws.com/prediction/v1.1/
     -q --show-progress -P $TEMP_DOWNLOAD_DIR
 tar xf $TEMP_DOWNLOAD_DIR/aerial_map.tar -C $TEMP_DATASET_DIR
 
-# Dowload sample configuration
+# Dowload train configuration
 wget https://raw.githubusercontent.com/qiaoyanxie/lyft/main/agent_motion_config.yaml -q
 
 # Install L5Kit
